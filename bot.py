@@ -29,6 +29,7 @@ def createTeams(persons):
     
 # Implement Scheduler
 def sendQuestion():
+  persons.clear()
   question = {'text': '<!channel>\n 안녕하세요! 점심 드실분은 이모지달아주세요!'}
   r = requests.post(CHANNEL_WEB_HOOK_URL, data=json.dumps(question), headers=headers)
   print(r)
@@ -51,8 +52,8 @@ def sendPairs():
 
 # Add jobs on the scheulers
 sched = BackgroundScheduler()
-sched.add_job(sendQuestion, 'interval', seconds=10)
-sched.add_job(sendPairs, 'interval', seconds=5)
+sched.add_job(sendQuestion, 'cron', day_of_week='mon-fri', hour=11, minute=45,)
+sched.add_job(sendPairs,  'cron', day_of_week='mon-fri', hour=12, minute=0,)
 sched.start()
 
 # Run Server
@@ -69,10 +70,12 @@ slack_events_adapter = SlackEventAdapter(SLACK_SIGNING_SECRET, '/slack/events', 
 def reaction_added(event):
   user = '<@%s>' % event['event']['user']
   channel = event['event']['item']['channel']
+  # Check the event occured in the specific channel that you wnat to get an evnet from
   if channel == CHANNEL_ID:
     if user not in persons:
       persons.append(user)
   print(persons)
+  persons.clear()
 
 # # Start the server on port 3000
 if __name__ == '__main__':
