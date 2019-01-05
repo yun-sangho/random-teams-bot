@@ -14,7 +14,7 @@ CHANNEL_ID=PUT_YOUR_CHANNEL_ID
 ```
 
 ## Built with
-[Slack Events Api sdk](https://github.com/slackapi/python-slack-events-api) - to get add emoji events from workspace
-[Flask](http://flask.pocoo.org/) - to open https port on the bot server.
-[Apscheduler](https://apscheduler.readthedocs.io/en/latest/index.html) - add scheduler that do jobs on a specific time using multi thread.
-[Requests](http://docs.python-requests.org/en/master/) - to send rest api request to slack workspace
+* [Slack Events Api sdk](https://github.com/slackapi/python-slack-events-api) - to get add emoji events from workspace.
+* [Flask](http://flask.pocoo.org/) - to open https port on the bot server.
+* [Apscheduler](https://apscheduler.readthedocs.io/en/latest/index.html) - add scheduler that do jobs on a specific time using multi thread.
+* [Requests](http://docs.python-requests.org/en/master/) - to send rest api request to slack workspace
