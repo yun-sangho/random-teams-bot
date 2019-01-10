@@ -18,3 +18,8 @@ and chang file name from `.env.sample` to `.env`
 * [Flask](http://flask.pocoo.org/) - to open https port on the bot server.
 * [Apscheduler](https://apscheduler.readthedocs.io/en/latest/index.html) - add scheduler that do jobs on a specific time using multi thread.
 * [Requests](http://docs.python-requests.org/en/master/) - to send rest api request to slack workspace
+
+## How it works
+Frist, the app sends a message to webhook of specific chaneel on Slack workspace, then after the message are posted, some users who want to go out for lunch add an emoji on the message.
+The Slack Api catches this actions, sends them to bot server and the server remembers them.
+Several minutes later, the server organaize temas and sends resault to the chaneel. 
