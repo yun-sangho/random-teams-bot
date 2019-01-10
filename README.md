@@ -22,4 +22,4 @@ and chang file name from `.env.sample` to `.env`
 ## How it works
 Frist, the app sends a message to webhook of specific chaneel on Slack workspace, then after the message are posted, some users who want to go out for lunch add an emoji on the message.
 The Slack Api catches this actions, sends them to bot server and the server remembers them.
-Several minutes later, the server organaize temas and sends resault to the chaneel. 
+Several minutes later, the server organaize temas and sends resault to the channel. 
